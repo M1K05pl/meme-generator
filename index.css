@@ -1,6 +1,6 @@
 body, html{
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 body{
     background-color: rgb(128, 127, 127);
@@ -40,7 +40,8 @@ body{
     left: 50%;
     transform: translateX(-50%);
     -webkit-text-stroke: 1px black;
-    font-size: 50px;
+    font-size: 40px;
+    word-break: break-all;
     font-family: 'Bebas Neue', cursive;
     color: white
 }
@@ -49,8 +50,9 @@ body{
     bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
+    font-size: 40px;
+    word-break: break-all;
     -webkit-text-stroke: 1px black;
-    font-size: 50px;
     font-family: 'Bebas Neue', cursive;
     color: white
 }
