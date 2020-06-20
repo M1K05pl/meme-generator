@@ -51,9 +51,11 @@
         <script>
             function renderImage(){
             html2canvas(document.body, {
-                allowTaint: true
-            }).then(function(canvas) {
-                document.body.appendChild(canvas)
+                allowTaint: true, 
+                onrendered: function(canvas) {
+                    document.body.appendChild(canvas)
+                }
+           
             })}
         </script>
     </body>
