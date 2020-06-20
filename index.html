@@ -43,17 +43,19 @@
         <div id="memeWhole">
         
         <img id="meme">
-        <div id="topText" ></div>
+        <div id="topText" ></div>     
         <div id="bottomText"></div>
+
         
         </div><br>
-        <button onclick="renderImage()">Download!</button>
+        <div id="downloadBtn"><button onclick="renderImage()">Download!</button></div>
         <script>
             function renderImage(){
             html2canvas(document.querySelector("#memeWhole"), {
                 allowTaint: true, 
                 onrendered: function(canvas) {
                     document.body.appendChild(canvas)
+                  
                 }
            
             })}
