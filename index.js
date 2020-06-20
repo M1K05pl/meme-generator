@@ -1,7 +1,7 @@
 const {app, BrowserWindow} = require("electron")
 const fs = require("fs")
 const path = require('path')
-const html2canvas = require('html2canvas')
+
 
 app.on("ready", () =>{
     runWin()
@@ -33,21 +33,3 @@ function onFileSelected(event) {
     reader.readAsDataURL(selectedFile)
 }
 
-document.getElementById("download").addEventListener("click", function() {
-    html2canvas(document.querySelector("#memeWhole")).then(function(canvas) {
-        console.log(canvas)
-        saveAs(canvas.toDataURL(), 'file-name.png')
-    })
-})
-function saveAs(uri, filename) {
-    var link = document.createElement('a')
-    if (typeof link.download === "string") {
-        link.href = uri
-        link.download = filename
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
-    } else {
-        window.open(uri)
-    }
-}

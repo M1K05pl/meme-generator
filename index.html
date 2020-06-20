@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Staatliches&display=swap" rel="stylesheet">
-
+        <script type="text/javascript" src="html2canvas-master/dist/html2canvas.js"></script>
         <link rel="stylesheet" href="index.css">
         <script src="index.js"></script>
     </head>
@@ -43,7 +43,15 @@
         <div id="bottomText"></div>
         
         </div><br>
-        <button id="download">Download!</button>
+        <button onclick="renderImage()" id="download">Download!</button>
+        <script type="text/javascript">
+            function renderImage() {
+                html2canvas(document.getElementById("container")).then(function(canvas) {
+                    document.body.appendChild(canvas)
+                })
+               
+            }
+        </script>
         
         </div>
 

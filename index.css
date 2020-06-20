@@ -57,9 +57,10 @@ body{
     font-family: 'Bebas Neue', cursive;
     color: white
 }
-#renderButton{
+#download{
     margin-right: auto;
     margin-left: auto;
     text-align: center;
     margin-bottom: 20px;
+    font-size: 20px;
 }
