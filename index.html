@@ -13,7 +13,7 @@
             var Submit = function() {
               html2canvas(document.getElementById("#memeWhole"), {
                 onrendered: function(canvas) {
-                  document.body.appendChild(canvas);
+                  document.getElementById("#memeWhole").appendChild(canvas);
                 }
               });
           };
@@ -56,14 +56,5 @@
         </div><br>
         <button onclick="Submit()" id="download">Download!</button>
         
-        
-                
-            
-        
-
-
-
-
-
     </body>
 </html>
