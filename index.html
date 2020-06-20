@@ -50,7 +50,7 @@
         <button onclick="renderImage()">Download!</button>
         <script>
             function renderImage(){
-            html2canvas(document.querySelector("#memeWhole"), {
+            html2canvas(document.body, {
                 allowTaint: true
             }).then(function(canvas) {
                 document.body.appendChild(canvas)
