@@ -67,4 +67,6 @@ body{
 #canvas {
     margin-left: auto;
     margin-right: auto;
+    width: 500;
+    height: 500;
 }
