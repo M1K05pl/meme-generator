@@ -49,12 +49,13 @@
         </div><br>
         <button onclick="renderImage()" id="download">Download!</button>
         <script>
+            function renderImage(){
             html2canvas(document.getElementById("#memeWhole"), {
                 allowTaint: true,
                 useCORS: true
             }).then(function(canvas) {
                 document.body.appendChild(canvas)
-            })
+            })}
         </script>
     </body>
 </html>
