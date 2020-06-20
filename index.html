@@ -47,12 +47,11 @@
         <div id="bottomText"></div>
         
         </div><br>
-        <button onclick="renderImage()" id="download">Download!</button>
+        <button onclick="renderImage()">Download!</button>
         <script>
             function renderImage(){
-            html2canvas(document.getElementById("#memeWhole"), {
-                allowTaint: true,
-                useCORS: true
+            html2canvas(document.querySelector("#memeWhole"), {
+                allowTaint: true
             }).then(function(canvas) {
                 document.body.appendChild(canvas)
             })}
