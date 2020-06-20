@@ -33,13 +33,21 @@ function onFileSelected(event) {
     reader.readAsDataURL(selectedFile)
 }
 
-function renderImage() {
-    html2canvas(document.getElementById("wholeMeme")).then(function(canvas) {
-        // Export the canvas to its data URI representation
-        var base64image = canvas.toDataURL("image/png");
-    
-        // Open the image in a new window
-        window.open(base64image , "_blank");
-    });
-    
+document.getElementById("download").addEventListener("click", function() {
+    html2canvas(document.querySelector("#memeWhole")).then(function(canvas) {
+        console.log(canvas)
+        saveAs(canvas.toDataURL(), 'file-name.png')
+    })
+})
+function saveAs(uri, filename) {
+    var link = document.createElement('a')
+    if (typeof link.download === "string") {
+        link.href = uri
+        link.download = filename
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+    } else {
+        window.open(uri)
+    }
 }
