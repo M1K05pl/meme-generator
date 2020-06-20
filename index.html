@@ -9,15 +9,8 @@
         <script type="text/javascript" src="html2canvas.js"></script>
         <link rel="stylesheet" href="index.css">
         <script src="index.js"></script>
-        <script type="text/javascript">
-            var Submit = function() {
-              html2canvas(document.getElementById("#memeWhole"), {
-                onrendered: function(canvas) {
-                  document.getElementById("#memeWhole").appendChild(canvas);
-                }
-              });
-          };
-          </script>
+        
+     
 
       
     </head>
@@ -54,7 +47,14 @@
         <div id="bottomText"></div>
         
         </div><br>
-        <button onclick="Submit()" id="download">Download!</button>
-        
+        <button onclick="renderImage()" id="download">Download!</button>
+        <script>
+            html2canvas(document.getElementById("#memeWhole"), {
+                allowTaint: true,
+                useCORS: true
+            }).then(function(canvas) {
+                document.body.appendChild(canvas)
+            })
+        </script>
     </body>
 </html>
