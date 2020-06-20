@@ -9,6 +9,17 @@
         <script type="text/javascript" src="html2canvas.js"></script>
         <link rel="stylesheet" href="index.css">
         <script src="index.js"></script>
+        <script type="text/javascript">
+            var Submit = function() {
+              html2canvas(document.getElementById("#memeWhole"), {
+                onrendered: function(canvas) {
+                  document.body.appendChild(canvas);
+                }
+              });
+          };
+          </script>
+
+      
     </head>
     <body>
         <h1 style="text-align: center; font-size: 50px; color:aqua; margin-top: 30px;">MeeeMeee Generator</h1>
@@ -43,15 +54,11 @@
         <div id="bottomText"></div>
         
         </div><br>
-        <button onclick="renderImage()" id="download">Download!</button>
-        <script>
-            function renderImage() {
-                html2canvas(document.querySelector("#memeWhole")).then(canvas => {
-     document.body.appendChild(canvas)
-});
-               
-            }
-        </script>
+        <button onclick="Submit()" id="download">Download!</button>
+        
+        
+                
+            
         
 
 
