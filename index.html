@@ -46,9 +46,9 @@
         <button onclick="renderImage()" id="download">Download!</button>
         <script type="text/javascript">
             function renderImage() {
-                html2canvas(document.getElementById("container")).then(function(canvas) {
-                    document.body.appendChild(canvas)
-                })
+                html2canvas(document.querySelector("#memeWhole")).then(canvas => {
+     document.body.appendChild(canvas)
+});
                
             }
         </script>
