@@ -44,17 +44,7 @@
         
         </div><br>
         <div id="renderButton"><form id="renderForm"><input type="button" id="renderButtonBtn" name="renderButtonBtn" value="Render image" onclick="renderImage()"></form>
-        <script>
-            window.renderImage = function() {
-                html2canvas(document.getElementById("memeWhole"), {
-                    onrendered: function (canvas) {
-                        document.body.appendChild(canvas)
-                    },
-                    width: 500,
-                    height: 500
-                })
-            }
-        </script>
+        
         </div>
 
 

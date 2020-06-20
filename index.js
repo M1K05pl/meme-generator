@@ -1,6 +1,7 @@
 const {app, BrowserWindow} = require("electron")
 const fs = require("fs")
 const path = require('path')
+const html2canvas = require('html2canvas')
 
 app.on("ready", () =>{
     runWin()
@@ -30,4 +31,15 @@ function onFileSelected(event) {
         imgtag.src = event.target.result
     }
     reader.readAsDataURL(selectedFile)
+}
+
+function renderImage() {
+    html2canvas(document.getElementById("wholeMeme")).then(function(canvas) {
+        // Export the canvas to its data URI representation
+        var base64image = canvas.toDataURL("image/png");
+    
+        // Open the image in a new window
+        window.open(base64image , "_blank");
+    });
+    
 }
