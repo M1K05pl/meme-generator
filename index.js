@@ -1,7 +1,7 @@
 const {app, BrowserWindow} = require("electron")
 const fs = require("fs")
 const path = require('path')
-
+const $ = require('jquery')
 
 app.on("ready", () =>{
     runWin()
@@ -15,10 +15,16 @@ function runWin() {
         show: true,
         frame: true,
         menu: null,
-        autoHideMenuBar: true
+        autoHideMenuBar: true,
+        preload: path.join(__dirname, 'client.js'),
+        webPreferences: {
+            nodeIntegration: false
+        }
     })
     this.appWin.loadURL(`file://${__dirname}/index.html`)
 }
+
+
 
 function onFileSelected(event) {
     var selectedFile = event.target.files[0];

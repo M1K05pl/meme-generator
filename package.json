@@ -13,6 +13,7 @@
     "electron": "^9.0.4",
     "fs": "0.0.1-security",
     "html2canvas": "^1.0.0-rc.5",
+    "jquery": "^3.5.1",
     "path": "^0.12.7"
   }
 }
