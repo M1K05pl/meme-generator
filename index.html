@@ -1,109 +1,118 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>MeeeMeee Generator</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Staatliches&display=swap" rel="stylesheet">
-        <script type="text/javascript" src="html2canvas.js"></script>
-        <link rel="stylesheet" href="index.css">
-        <script src="jquery.js"></script>
 
-        <script src="index.js"></script>
-        
-        
-     
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MeeeMeee Generator</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Staatliches&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="html2canvas.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <script src="jquery.js"></script>
 
-      
-    </head>
-    <body>
-        <h1 style="text-align: center; font-size: 50px; color:aqua; margin-top: 30px;">MeeeMeee Generator</h1>
-        <div id="logo">
-            <form id="topTextForm"><label>Top text:</label><br> <input type="text" id="topTextLabel" name="topTextLabelName" value=""> <br>
-            <label>Font size:</label><br><input type="range" min="10" max="150" id="sliderTop"> <br> <label for="topColor">Choose top text color:</label>
+    <script src="index.js"></script>
+
+
+
+
+
+</head>
+
+<body>
+    <div id="meeemeee"><img src="images/logo.png"></div>
+    
+    <div id="logo">
+        <form id="topTextForm"><label>Top text:</label><br> <input type="text" id="topTextLabel" name="topTextLabelName"
+                value=""> <br>
+            <label>Font size:</label><br><input type="range" min="10" max="150" id="sliderTop"> <br> <label
+                for="topColor">Choose top text color:</label>
             <select id="topColor" onchange="topTextColor()">
                 <option value="black">Black</option>
                 <option value="white" selected>White</option>
                 <option value="yellow">Yellow</option>
                 <option value="green">Green</option>
-                <option value="red" >Red</option>
+                <option value="red">Red</option>
                 <option value="blue">Blue</option>
             </select><br><br></form>
-            
-           <script>
-               $("#topTextLabel").keyup(function() {
-                   var value = $(this).val()
-                   $("#topText").text(value)
-               }).keyup()
+
+        <script>
+            $("#topTextLabel").keyup(function () {
+                var value = $(this).val()
+                $("#topText").text(value)
+            }).keyup()
             $('#sliderTop').on('input', e => $('#topText').css('font-size', $(e.target).val() + 'px'));
             function topTextColor() {
-                  var topColorValue = document.getElementById("topColor").value
-                  $('#topText').css('color', topColorValue)
-              }
-             
-              
-            
-           
-          
-            </script>
-            
-            
-            <form id="bottomTextForm"><label>Bottom text: </label><br><input type="text" id="bottomTextLabel" name="bottomTextLabelName" value=""> <br>
-                <label>Font size:</label><br><input type="range" min="10" max="150" id="sliderBottom"> <br> <label for="topColor">Choose top text color:</label>
-                <select id="bottomColor" onchange="bottomTextColor()">
-                    <option value="black">Black</option>
-                    <option value="white" selected>White</option>
-                    <option value="yellow">Yellow</option>
-                    <option value="green">Green</option>
-                    <option value="red" >Red</option>
-                    <option value="blue">Blue</option>
-                </select><br><br></form>
-               <script>
-              
-              $('#sliderBottom').on('input', e => $('#bottomText').css('font-size', $(e.target).val() + 'px'));
-              function bottomTextColor() {
-                  var bottomColorValue = document.getElementById("bottomColor").value
-                  $('#bottomText').css('color', bottomColorValue)
-              }
-              
-              $("#bottomTextLabel").keyup(function() {
-                   var value = $(this).val()
-                   $("#bottomText").text(value)
-               }).keyup()
-                </script>
-            <input type="file" id="Image" name="Image" accept="image/png, image/jpeg" onchange="onFileSelected(event)">
-        </div>
-        <div id="memeWhole">
-        
+                var topColorValue = document.getElementById("topColor").value
+                $('#topText').css('color', topColorValue)
+            }
+
+
+
+
+
+        </script>
+
+
+        <form id="bottomTextForm"><label>Bottom text: </label><br><input type="text" id="bottomTextLabel"
+                name="bottomTextLabelName" value=""> <br>
+            <label>Font size:</label><br><input type="range" min="10" max="150" id="sliderBottom"> <br> <label
+                for="topColor">Choose top text color:</label>
+            <select id="bottomColor" onchange="bottomTextColor()">
+                <option value="black">Black</option>
+                <option value="white" selected>White</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+            </select><br><br></form>
+        <script>
+
+            $('#sliderBottom').on('input', e => $('#bottomText').css('font-size', $(e.target).val() + 'px'));
+            function bottomTextColor() {
+                var bottomColorValue = document.getElementById("bottomColor").value
+                $('#bottomText').css('color', bottomColorValue)
+            }
+
+            $("#bottomTextLabel").keyup(function () {
+                var value = $(this).val()
+                $("#bottomText").text(value)
+            }).keyup()
+        </script>
+        <input type="file" id="Image" name="Image" accept="image/png, image/jpeg" onchange="onFileSelected(event)">
+    </div>
+    <div id="memeWhole">
+
         <img id="meme">
-        <div id="topText" ></div>     
+        <div id="topText"></div>
         <div id="bottomText"></div>
 
-        
-        </div><br>
-        <div id="downloadBtn"><button onclick="renderImage()">Download!</button></div>
-        <script>
-          async function renderImage(){
-                html2canvas(document.querySelector("#memeWhole"), {
-                allowTaint: true, 
-                onrendered:  function(canvas) {
-                 document.body.appendChild(canvas)
+
+    </div><br>
+    <div id="downloadBtn"><button onclick="renderImage()">Download!</button></div>
+    <script>
+         function renderImage() {
+                 html2canvas(document.querySelector("#memeWhole"), {
+                allowTaint: true,
+                onrendered: function (canvas) {
+                    document.body.appendChild(canvas)
                 }
-           
-            })}
-            function onFileSelected(event) {
-    var selectedFile = event.target.files[0];
-    var reader = new FileReader();
 
-    var imgtag = document.getElementById("meme")
-    imgtag.title = selectedFile.name
+            })
+        }
+        function onFileSelected(event) {
+            var selectedFile = event.target.files[0];
+            var reader = new FileReader();
 
-    reader.onload = function(event) {
-        imgtag.src = event.target.result
-    }
-    reader.readAsDataURL(selectedFile)
-}
-        </script>
-    </body>
+            var imgtag = document.getElementById("meme")
+            imgtag.title = selectedFile.name
+
+            reader.onload = function (event) {
+                imgtag.src = event.target.result
+            }
+            reader.readAsDataURL(selectedFile)
+        }
+    </script>
+</body>
+
 </html>
