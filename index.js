@@ -1,28 +1,6 @@
-const {app, BrowserWindow} = require("electron")
 const fs = require("fs")
 const path = require('path')
 const $ = require('jquery')
-
-app.on("ready", () =>{
-    runWin()
-
-})
-
-function runWin() {
-    this.appWin = new BrowserWindow({
-        width: 1000,
-        height: 1000,
-        show: true,
-        frame: true,
-        menu: null,
-        autoHideMenuBar: true,
-        preload: path.join(__dirname, 'client.js'),
-        webPreferences: {
-            nodeIntegration: false
-        }
-    })
-    this.appWin.loadURL(`file://${__dirname}/index.html`)
-}
 
 
 
@@ -39,3 +17,6 @@ function onFileSelected(event) {
     reader.readAsDataURL(selectedFile)
 }
 
+$('#slider').on('change'), function() {
+    var v = $(this).val();
+   $('#topText').css('font-size', v + 'px')
