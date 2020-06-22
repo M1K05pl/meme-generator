@@ -21,32 +21,56 @@
         <h1 style="text-align: center; font-size: 50px; color:aqua; margin-top: 30px;">MeeeMeee Generator</h1>
         <div id="logo">
             <form id="topTextForm"><label>Top text:</label><br> <input type="text" id="topTextLabel" name="topTextLabelName" value=""> <br>
-            <input type='button' id="topTextButton" value="Submit top text" onclick="updateTopText()"><br>
-            <input type="range" min="10" max="150" id="sliderTop"> <br><br></form>
+            <label>Font size:</label><br><input type="range" min="10" max="150" id="sliderTop"> <br> <label for="topColor">Choose top text color:</label>
+            <select id="topColor" onchange="topTextColor()">
+                <option value="black">Black</option>
+                <option value="white" selected>White</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="red" >Red</option>
+                <option value="blue">Blue</option>
+            </select><br><br></form>
             
            <script>
+               $("#topTextLabel").keyup(function() {
+                   var value = $(this).val()
+                   $("#topText").text(value)
+               }).keyup()
             $('#sliderTop').on('input', e => $('#topText').css('font-size', $(e.target).val() + 'px'));
+            function topTextColor() {
+                  var topColorValue = document.getElementById("topColor").value
+                  $('#topText').css('color', topColorValue)
+              }
+             
+              
             
-
-
-            function updateTopText(){
-                let topTextValue = document.getElementById("topTextLabel").value
-                document.getElementById("topText").textContent = `${topTextValue}`
-            }
+           
           
             </script>
             
             
             <form id="bottomTextForm"><label>Bottom text: </label><br><input type="text" id="bottomTextLabel" name="bottomTextLabelName" value=""> <br>
-                <input type='button' id="bottomTextButton" value="Submit bottom text" onclick="updateBottomText()"> <br>
-                <input type="range" min="10" max="150" id="sliderBottom"> <br><br></form>
+                <label>Font size:</label><br><input type="range" min="10" max="150" id="sliderBottom"> <br> <label for="topColor">Choose top text color:</label>
+                <select id="bottomColor" onchange="bottomTextColor()">
+                    <option value="black">Black</option>
+                    <option value="white" selected>White</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                    <option value="red" >Red</option>
+                    <option value="blue">Blue</option>
+                </select><br><br></form>
                <script>
               
               $('#sliderBottom').on('input', e => $('#bottomText').css('font-size', $(e.target).val() + 'px'));
-                function updateBottomText(){
-                    let bottomTextValue = document.getElementById("bottomTextLabel").value
-                    document.getElementById("bottomText").textContent = `${bottomTextValue}`
-                }
+              function bottomTextColor() {
+                  var bottomColorValue = document.getElementById("bottomColor").value
+                  $('#bottomText').css('color', bottomColorValue)
+              }
+              
+              $("#bottomTextLabel").keyup(function() {
+                   var value = $(this).val()
+                   $("#bottomText").text(value)
+               }).keyup()
                 </script>
             <input type="file" id="Image" name="Image" accept="image/png, image/jpeg" onchange="onFileSelected(event)">
         </div>
