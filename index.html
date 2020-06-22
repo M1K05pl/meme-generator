@@ -84,15 +84,26 @@
         </div><br>
         <div id="downloadBtn"><button onclick="renderImage()">Download!</button></div>
         <script>
-            function renderImage(){
-            html2canvas(document.querySelector("#memeWhole"), {
+          async function renderImage(){
+                html2canvas(document.querySelector("#memeWhole"), {
                 allowTaint: true, 
-                onrendered: function(canvas) {
-                   document.body.appendChild(canvas)
-
+                onrendered:  function(canvas) {
+                 document.body.appendChild(canvas)
                 }
            
             })}
+            function onFileSelected(event) {
+    var selectedFile = event.target.files[0];
+    var reader = new FileReader();
+
+    var imgtag = document.getElementById("meme")
+    imgtag.title = selectedFile.name
+
+    reader.onload = function(event) {
+        imgtag.src = event.target.result
+    }
+    reader.readAsDataURL(selectedFile)
+}
         </script>
     </body>
 </html>
