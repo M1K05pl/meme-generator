@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Staatliches&display=swap" rel="stylesheet">
     <script type="text/javascript" src="html2canvas.js"></script>
     <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
     <script src="jquery.js"></script>
 
     <script src="index.js"></script>
@@ -20,7 +21,7 @@
 </head>
 
 <body>
-    <div id="meeemeee"><img src="images/logo.png"></div>
+    <div id="meeemeee"><img src="images/logo_small.png"></div>
     
     <div id="logo">
         <form id="topTextForm"><label>Top text:</label><br> <input type="text" id="topTextLabel" name="topTextLabelName"
@@ -91,10 +92,12 @@
     </div><br>
     <div id="downloadBtn"><button onclick="renderImage()">Download!</button></div>
     <script>
-         function renderImage() {
+          function renderImage() {
+                $('canvas').remove()
                  html2canvas(document.querySelector("#memeWhole"), {
                 allowTaint: true,
                 onrendered: function (canvas) {
+                    
                     document.body.appendChild(canvas)
                 }
 
